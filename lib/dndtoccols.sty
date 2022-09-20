@@ -1,0 +1,9 @@
+\makeatletter % Sets the category code of @ to 11
+\newcounter{i} % Creates counter "i" (of course, you can name it whatever you want)
+\setcounter{i}{1} % Sets i to 1
+\whiledo{\value{i}<7}% While i is less than 7...
+{
+    \patchcmd{\@starttoc}{{multicols}}{{multicols*}}{}{} % Replace instances of "multicols" in @starttoc with "multicols*"
+    \stepcounter{i} % Step i up by one
+}
+\makeatother % Sets the category code of @ to 12

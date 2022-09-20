@@ -81,6 +81,7 @@
 
 % Main modules in alphabetical order
 \RequirePackage {lib/dndcomment}    % inline comment boxes
+\RequirePackage {lib/dndcoverpage}  % cover page support
 \RequirePackage {lib/dndheader}     % fancy headers and footers
 \RequirePackage {lib/dndmonster}    % stat blocks
 \RequirePackage {lib/dndreadaloud}  % read-aloud text
@@ -88,3 +89,9 @@
 \RequirePackage {lib/dndsidebar}    % sidebars
 \RequirePackage {lib/dndtable}      % tables
 \RequirePackage {lib/dndtoc}        % table of contents styling
+
+\bool_if:NT \l__dnd_multitoc_bool
+  {
+    \bool_if:NT \l__dnd_full_height_toc_bool
+      { \RequirePackage {lib/dndtoccols} }
+  }

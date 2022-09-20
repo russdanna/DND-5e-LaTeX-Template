@@ -29,10 +29,12 @@
 \bool_new:N \l__dnd_show_footer_scroll_bool
 \bool_new:N \l__dnd_justified_bool
 \bool_new:N \l__dnd_multitoc_bool
+\bool_new:N \l__dnd_full_height_toc_bool
 \bool_new:N \l__dnd_layout_bool
 \bool_new:N \l__dnd_no_deprecated_code_bool
 
 \bool_set_true:N \l__dnd_multitoc_bool
+\bool_set_false:N \l__dnd_full_height_toc_bool
 \bool_set_eq:NN \l__dnd_layout_bool \c__dnd_isclass_bool
 
 % BEGIN section to remove in version 1.0.0
@@ -81,6 +83,18 @@
         \bool_set_false:N \l__dnd_multitoc_bool
       },
     nomultitoc .value_forbidden:n = true,
+
+    % Make multi-column toc go full text height before wrapping
+    tocwrap .choice:,
+    tocwrap / full .code:n =
+      {
+        \bool_set_true:N \l__dnd_full_height_toc_bool
+      },
+    tocwrap / balance .code:n =
+      {
+        \bool_set_false:N \l__dnd_full_height_toc_bool
+      },
+    tocwrap .initial:n = balance,
 
     % Apply layout formatting
     %layout .bool_set:N       = \l__dnd_layout_bool,
