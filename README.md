@@ -112,13 +112,14 @@ Note that the package has only been tested with the `book` class.
 
 ### Options
 
-| Option         | Package `dnd`   | Class `dndbook`   |
-| -------------- | :-------------: | :---------------: |
-| `bg`           | ✓               | ✓                 |
-| `justified`    | ✓               | ✓                 |
-| `layout`       | ✓               |                   |
-| `nomultitoc`   | ✓               | ✓                 |
-| `nodeprecatedcode`   | ✓               | ✓                 |
+| Option             | Package `dnd` | Class `dndbook` |
+|--------------------|:-------------:|:---------------:|
+| `bg`               |       ✓       |        ✓        |
+| `justified`        |       ✓       |        ✓        |
+| `layout`           |       ✓       |                 |
+| `nomultitoc`       |       ✓       |        ✓        |
+| `nodeprecatedcode` |       ✓       |        ✓        |
+| `tocwrap`          |       ✓       |        ✓        |
 
 The `dndbook` class also supports all the options of the `book` class.
 
@@ -152,6 +153,15 @@ Disable multi-column table of contents.
 #### `nodeprecatedcode`
 
 Excludes all deprecated code from the build process.
+
+#### `tocwrap`
+
+Controls the wrapping of a multi-column table of contents. This is a key-value option with the following possible values:
+
+* `balance`: Contents will wrap to balance across the columns
+* `full`: Contents will not wrap until it reaches full text height
+
+The default value is `balance` for backwards compatibility with previous releases.
 
 ## Dependencies
 
